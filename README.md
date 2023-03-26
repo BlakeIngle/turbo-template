@@ -33,15 +33,6 @@ cd my-turborepo
 yarn run build
 ```
 
-### Develop
-
-To develop all apps and packages, run the following command:
-
-```
-cd my-turborepo
-yarn run dev
-```
-
 ### Remote Caching
 
 Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
@@ -71,3 +62,48 @@ Learn more about the power of Turborepo:
 - [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
 - [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
 - [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
+
+# Setup Instructions
+
+## Prerequisites
+
+### Install PNPM
+1. Open a new terminal in any directory and execute the following command:
+
+```
+npm i -g pnpm nodemon
+```
+>this will install `pnpm` and `nodemon` globably (-g) to your computer
+
+## One Time Setup
+
+1. Clone the repository from Git using your favorite method
+
+2. Open a new terminal in the project's root directory and execute the following command: 
+
+```
+pnpm i
+```
+>this will install all of the required modules for your apps
+
+3. Create a new file in the `apps/web` directory named `.env` with the following content:
+
+```
+VITE_PUBLIC_API_ENDPOINT=http://localhost:5000
+```
+
+4. Create a new file in the `apps/api` directory named `.env` with the following content:
+
+```
+PORT=5000
+```
+
+## Running the project for development
+
+1. Open a new terminal in the project's root directory and execute the following command: 
+
+```
+pnpm dev
+```
+
+> This will run both the app and the api in development mode on your local machine
